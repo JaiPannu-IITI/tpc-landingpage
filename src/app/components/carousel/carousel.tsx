@@ -96,9 +96,10 @@ export default function Carousel(props: any) {
                  viewport={{ once: true, amount: 0.2 }} // Adjust amount based on when you want the animation to trigger
                  variants={ index === 2 || index === 4  ? fadeInFromLeft : fadeInFromRight}
                  transition={{ duration: 1 }} // Adjust the duration as needed
+                 key={index}
                  
                >
-                <div className={styles.shadow2} key={index} style={{ display: index === currentIndex ? "none" : "block" }  }>
+                <div className={styles.shadow2}  style={{ display: index === currentIndex ? "none" : "block" }  }>
                 <button key={index} onClick={() => setCurrentIndex(index)} style={{ display: index === currentIndex ? "none" : "block" } }>
                 <Image radius="none" isZoomed key={index} alt="gallery" src={image} className={styles.thumbimg} />
                 </button>
