@@ -29,13 +29,17 @@ export default function Navbar({ className }: { className?: string }) {
     console.log(scrollYProgress.get());
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
- 
+      if(scrollYProgress.get() < 0.05){
+        setVisible(true);
+        
+      }
+      else if (direction < 0) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
     
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+        
       
     }
   });
